@@ -1,0 +1,37 @@
+{
+  "name": "defence-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed:Admin": "node src/seed/adminseed.js",
+    "migrate:quiz": "node src/scripts/migrateQuizData.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cheerio": "^1.0.0",
+    "cloudinary": "^2.11.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.3",
+    "express": "^5.2.1",
+    "googleapis": "^183.0.0",
+    "joi": "^18.2.9",
+    "jsonwebtoken": "^9.0.3",
+    "mammoth": "^1.13.0",
+    "mongoose": "^9.10.2",
+    "multer": "^2.4.0",
+    "nodemon": "^3.1.14",
+    "resend": "^6.32.0",
+    "zod": "^4.6.5"
+  },
+  "overrides": {
+    "argparse": "2.0.1"
+  }
+}

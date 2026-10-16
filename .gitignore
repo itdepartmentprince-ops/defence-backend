@@ -1,0 +1,24 @@
+# dependencies
+/node_modules
+
+# environment files (keep example templates tracked)
+.env*
+!.env.example
+!.env.*.example
+
+# build output
+/dist
+/build
+/coverage
+/.cache
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# operating system files
+.DS_Store
+Thumbs.db
