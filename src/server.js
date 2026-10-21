@@ -8,10 +8,12 @@ const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
     try {
-        await connectDB();
-
         app.listen(PORT, () => {
             console.log(`Server Running on Port ${PORT}`);
+        });
+
+        connectDB().catch((err) => {
+            console.error("Initial DB connection failed:", err.message);
         });
     } catch (error) {
         console.error("Server startup failed:", error.message);

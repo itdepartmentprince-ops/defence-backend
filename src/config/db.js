@@ -9,13 +9,27 @@ try {
 }
 
 const connectDB = async () => {
+    if (!process.env.MONGODB_URI) {
+        console.error("MongoDB Error: MONGODB_URI is not defined in environment variables!");
+        return;
+    }
+
     try {
-        await mongoose.connect(process.env.MONGODB_URI);
+        await mongoose.connect(process.env.MONGODB_URI, {
+            serverSelectionTimeoutMS: 8000,
+        });
         console.log("MongoDB Connected Successfully");
     } catch (error) {
         console.error("MongoDB Connection Failed:", error.message);
-        process.exit(1);
     }
 };
 
-module.exports = connectDB
+mongoose.connection.on("disconnected", () => {
+    console.warn("MongoDB disconnected. Reconnecting...");
+});
+
+mongoose.connection.on("error", (err) => {
+    console.error("MongoDB connection error:", err.message);
+});
+
+module.exports = connectDB;
